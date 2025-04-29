@@ -1,6 +1,6 @@
 ## 👋 Who I Am
 
-I'm **Satender Kumar**, an Information Security Analyst with 4 years of hands-on experience specializing in:
+I'm **Satender Kumar**, an Information Security Analyst with 4 years of hands-on experience specializing in: 
 
 Read me -- https://kzmqjtr6y47mkc25sg1h.lite.vusercontent.net/ --
 
