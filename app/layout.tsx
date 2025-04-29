@@ -1,34 +1,73 @@
 import type React from "react"
+import { Inter, Space_Grotesk } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+import BackToTop from "@/components/back-to-top"
+import { Toaster } from "@/components/ui/toaster"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
 
-export const metadata: Metadata = {
-  title: "Satender Kumar - Cybersecurity Analyst Portfolio",
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+})
+
+export const metadata = {
+  title: "Satender Kumar | Information Security Portfolio",
   description:
-    "Portfolio of Satender Kumar, a Cybersecurity Analyst specializing in cloud security, SIEM, IAM, and incident response.",
-  keywords: "cybersecurity, cloud security, IAM, SIEM, Splunk, Microsoft Sentinel, AWS, Azure, Zero Trust",
+    "Cybersecurity portfolio showcasing Cloud Security, SIEM, Threat Detection, IAM, and Compliance expertise with real-world impact.",
+  openGraph: {
+    title: "Satender Kumar | Information Security Portfolio",
+    description:
+      "Explore a hands-on portfolio of real-world security implementations, risk reduction, and threat detection strategies.",
+    url: "https://www.satenderkumar.com",
+    siteName: "Satender Kumar",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Satender Kumar - Cybersecurity Professional",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Satender Kumar | Information Security Portfolio",
+    description: "Cloud Security, SIEM, IAM, and Risk & Compliance expertise.",
+    images: ["/images/og-image.png"],
+  },
     generator: 'v0.dev'
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://api.emailjs.com;"
-        />
-        <link rel="icon" href="/favicon.ico" />
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <BackToTop />
+            <Toaster />
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
