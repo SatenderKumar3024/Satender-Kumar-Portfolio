@@ -1,38 +1,54 @@
-## 👋 Who I Am
+# 👋 Who I Am
 
-I'm **Satender Kumar**, an Information Security Analyst with 4 years of hands-on experience specializing in: 
+I'm **Satender Kumar**, an Information Security Analyst with **4+ years of experience** defending cloud and enterprise environments through proactive threat detection, automation, and compliance-driven architecture.
 
-Read me -- https://kzmqjtr6y47mkc25sg1h.lite.vusercontent.net/ --
-
-- **Cloud Security** (AWS, Azure)
-- **SIEM & Threat Detection** (Splunk, Microsoft Sentinel)
-- **Security Automation** using Python & PowerShell
-- **Compliance Frameworks** such as NIST 800-53, ISO 27001, and GDPR
-
-I’ve successfully:
-- Reduced organizational risk by **40%** with secure IAM and Zero Trust implementations
-- Boosted SOC operational efficiency by **25%** through security workflow automation
-- Enhanced **APT detection** by **15%** using MITRE ATT&CK-aligned custom KQL/SPL queries
-
-### 🔐 Core Areas of Expertise
-- Multi-cloud security architecture (AWS IAM, Azure Defender, Entra ID)
-- SIEM rule tuning and incident response (Splunk Enterprise Security, Sentinel)
-- Security monitoring dashboards and automation (Prisma Cloud, custom scripts)
-- Regulatory and risk compliance assessments (GDPR, ISO, PCI DSS)
-
-### 🧾 Certifications
-- Microsoft AZ-500 (Azure Security Engineer)
-- CompTIA Security+, CySA+, Cloud+
-- (ISC)² SSCP – Systems Security Certified Practitioner
-- Microsoft SC-200, SC-300, SC-900
-- Google Cybersecurity Certificate
-
-### 🌍 Let's Connect
-📧 Email: [satenderkumar.analyst@gmail.com](mailto:satenderkumar.analyst@gmail.com)  
-🔗 LinkedIn: [linkedin.com/in/satender-singh2430](https://linkedin.com/in/satender-singh2430)  
-📅 Schedule: [calendly.com/satenderkumar-analyst](https://calendly.com/satenderkumar-analyst)  
-🌐 Portfolio: [Visit My Portfolio](https://kzmqjtr6y47mkc25sg1h.lite.vusercontent.net)
+📂 **Explore My Portfolio:**  
+🔗 [www.satenderkumar.com](https://www.satenderkumar.com)
 
 ---
 
-> 🔎 I believe in securing modern enterprises with precision, automation, and forward-thinking strategy. If you're building something meaningful in cybersecurity—let's connect!
+## 🔐 Areas of Expertise
+
+- **☁️ Cloud Security**  
+  AWS IAM, Azure Defender, Entra ID, Zero Trust
+
+- **🛡️ SIEM & Threat Detection**  
+  Splunk (SPL, ES), Microsoft Sentinel (KQL), MITRE ATT&CK
+
+- **⚙️ Security Automation**  
+  Python, PowerShell, API Integration, SOAR workflows
+
+- **📊 Risk & Compliance**  
+  NIST 800-53, ISO 27001, GDPR, PCI DSS, SOC 2
+
+---
+
+## 📈 Impact Highlights
+
+- ✅ Reduced organizational **risk by 40%** through secure IAM & Zero Trust controls  
+- 🚀 Boosted SOC efficiency by **25%** via automation and custom workflows  
+- 🔎 Enhanced **APT detection by 15%** with MITRE-aligned SIEM tuning  
+- 🧩 Developed **IR playbooks** reducing MTTR from 4h → 45m  
+- 🛠️ Hardened multi-cloud environments for **5000+ users**
+
+---
+
+## 🧾 Certifications
+
+- **Microsoft** – AZ-500, SC-200, SC-300, SC-900  
+- **CompTIA** – Security+, CySA+, Cloud+  
+- **(ISC)²** – SSCP  
+- **Other** – Google Cybersecurity Certificate, Splunk SCDA, ServiceNow GRC
+
+---
+
+## 🔗 Let's Connect
+
+- 📧 Email: [satenderkumar.analyst@gmail.com](mailto:satenderkumar.analyst@gmail.com)  
+- 💼 LinkedIn: [linkedin.com/in/satender-singh2430](https://linkedin.com/in/satender-singh2430)  
+- 📅 Book a Chat: [calendly.com/satenderkumar-analyst](https://calendly.com/satenderkumar-analyst)  
+- 🌐 Portfolio: [www.satenderkumar.com](https://www.satenderkumar.com)
+
+---
+
+> 🔍 *"Securing the cloud, one automation at a time. Let’s build secure, scalable, and future-ready systems together."*
