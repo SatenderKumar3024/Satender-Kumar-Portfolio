@@ -72,6 +72,12 @@ const Experience = () => {
     },
   ]
 
+  const updatedExperiences = experiences.map((exp) => ({
+    ...exp,
+    description: exp.description.map((desc) => desc.replace("4+ years", "4 years")),
+    period: exp.period.replace("4+ years", "4 years"),
+  }))
+
   return (
     <section id="experience" className="py-16">
       <div className="container mx-auto px-4">
@@ -84,7 +90,7 @@ const Experience = () => {
           <h2 className="text-3xl font-bold mb-8 text-center">Professional Experience</h2>
 
           <div className="space-y-8">
-            {experiences.map((exp, index) => (
+            {updatedExperiences.map((exp, index) => (
               <motion.div
                 key={exp.company}
                 initial={{ opacity: 0, y: 20 }}

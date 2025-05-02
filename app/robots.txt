@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://satenderkumar.com/sitemap.xml
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://www.satenderkumar.com/sitemap.xml

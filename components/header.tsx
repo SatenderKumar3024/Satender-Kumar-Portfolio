@@ -6,6 +6,7 @@ import { useTheme } from "next-themes"
 import { Menu, X, Moon, Sun, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import VerifiedBadge from "@/components/verified-badge"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -81,7 +82,9 @@ const Header = () => {
             className="flex items-center"
           >
             <Shield className="h-6 w-6 text-cyber-sunset-pink mr-2" />
-            <span className="text-xl font-bold font-mono text-cyber-soft-white">Satender Kumar</span>
+            <div className="text-xl font-bold font-mono text-cyber-soft-white">
+              <VerifiedBadge name="Satender Kumar" />
+            </div>
           </motion.div>
         </Link>
 

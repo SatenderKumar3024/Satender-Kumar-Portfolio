@@ -10,7 +10,7 @@ const kpiData = [
   {
     title: "Years Experience",
     value: 4,
-    suffix: "+",
+    suffix: "",
     icon: Clock,
     color: "from-blue-500 to-blue-700",
     textColor: "text-blue-400",
