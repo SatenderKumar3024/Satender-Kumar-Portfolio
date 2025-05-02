@@ -25,6 +25,7 @@ import {
   FileCode2,
   Building2,
   ExternalLink,
+  TrendingUp,
 } from "lucide-react"
 
 interface Achievement {
@@ -68,6 +69,122 @@ export function AnimatedTimeline({ items }: AnimatedTimelineProps) {
 
   const [expandedItem, setExpandedItem] = useState<number | null>(null)
   const [reducedMotion, setReducedMotion] = useState(false)
+
+  // Add these helper functions before the return statement
+  // Helper function to calculate time span
+  function getTimeSpan(dateRange: string): string {
+    const dates = dateRange.split(" - ")
+    if (dates.length !== 2) return "N/A"
+
+    const startDate = parseDate(dates[0])
+    const endDate = dates[1].toLowerCase() === "present" ? new Date() : parseDate(dates[1])
+
+    if (!startDate || !endDate) return "N/A"
+
+    const months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth())
+
+    const years = Math.floor(months / 12)
+    const remainingMonths = months % 12
+
+    if (years === 0) {
+      return `${remainingMonths} month${remainingMonths !== 1 ? "s" : ""}`
+    } else if (remainingMonths === 0) {
+      return `${years} year${years !== 1 ? "s" : ""}`
+    } else {
+      return `${years}y ${remainingMonths}m`
+    }
+  }
+
+  // Helper function to parse date strings
+  function parseDate(dateStr: string): Date | null {
+    const months: Record<string, number> = {
+      jan: 0,
+      feb: 1,
+      mar: 2,
+      apr: 3,
+      may: 4,
+      jun: 5,
+      jul: 6,
+      aug: 7,
+      sep: 8,
+      oct: 9,
+      nov: 10,
+      dec: 11,
+    }
+
+    const parts = dateStr.toLowerCase().split(" ")
+    if (parts.length !== 2) return null
+
+    const month = months[parts[0].substring(0, 3)]
+    if (month === undefined) return null
+
+    const year = Number.parseInt(parts[1])
+    if (isNaN(year)) return null
+
+    return new Date(year, month)
+  }
+
+  // Helper function to calculate width percentage based on time span
+  function getTimeSpanWidth(dateRange: string): string {
+    const dates = dateRange.split(" - ")
+    if (dates.length !== 2) return "50%"
+
+    const startDate = parseDate(dates[0])
+    const endDate = dates[1].toLowerCase() === "present" ? new Date() : parseDate(dates[1])
+
+    if (!startDate || !endDate) return "50%"
+
+    const months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth())
+
+    // Scale: 0-12 months: 25-50%, 12-24 months: 50-75%, 24+ months: 75-100%
+    const percentage = 25 + (Math.min(months, 36) / 36) * 75
+    return `${percentage}%`
+  }
+
+  // Add this helper function before the return statement
+  function getResponsibilities(title: string): string[] {
+    switch (title) {
+      case "Information Security Analyst":
+        return [
+          "Led 24x7 SOC operations monitoring and responding to security incidents",
+          "Implemented security frameworks to protect cloud infrastructure",
+          "Conducted threat hunting and vulnerability assessments",
+          "Developed and maintained security documentation and procedures",
+          "Collaborated with IT teams to implement security controls",
+        ]
+      case "Identity and Access Management (IAM) Analyst":
+        return [
+          "Designed and implemented IAM policies and procedures",
+          "Automated user provisioning and deprovisioning workflows",
+          "Managed access controls for 5,000+ users across multiple systems",
+          "Conducted regular access reviews and implemented least privilege principles",
+          "Deployed and managed MFA solutions",
+        ]
+      case "IT Support Specialist":
+        return [
+          "Provided technical support for Microsoft 365 environments",
+          "Implemented basic security controls and best practices",
+          "Managed user accounts and permissions",
+          "Created documentation for support processes",
+          "Resolved technical issues within SLA timeframes",
+        ]
+      case "Technical Support Specialist":
+        return [
+          "Delivered remote technical support to clients",
+          "Created documentation for support processes",
+          "Troubleshot hardware and software issues",
+          "Maintained knowledge base of common issues and resolutions",
+          "Achieved high customer satisfaction ratings",
+        ]
+      default:
+        return [
+          "Managed day-to-day operations and responsibilities",
+          "Collaborated with team members on key initiatives",
+          "Implemented best practices and process improvements",
+          "Maintained documentation and knowledge sharing",
+        ]
+    }
+  }
 
   // Add this in a useEffect
   useEffect(() => {
@@ -301,7 +418,7 @@ export function AnimatedTimeline({ items }: AnimatedTimelineProps) {
                 className={`w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] ${expandedItem === index ? "z-20" : "z-10"}`}
               >
                 <Card
-                  className={`p-4 rounded-xl ${cardShadow} bg-gradient-to-br ${gradient} border-[#00BFA6]/40 border-2 timeline-card backdrop-blur-sm`}
+                  className={`p-4 rounded-xl ${cardShadow} bg-gradient-to-br ${gradient} border-[#00BFA6]/40 border-2 timeline-card backdrop-blur-sm hover:shadow-[0_15px_30px_-5px_rgba(0,191,166,0.5),0_10px_15px_-5px_rgba(0,191,166,0.4)] transition-all duration-300`}
                   onClick={() => setExpandedItem(expandedItem === index ? null : index)}
                   tabIndex={0}
                   onKeyDown={(e) => {
@@ -323,6 +440,25 @@ export function AnimatedTimeline({ items }: AnimatedTimelineProps) {
                             <span className="text-white">{item.milestone}</span>
                           </div>
                         )}
+                      </div>
+
+                      {/* Add after the date span in the card content */}
+                      <div className="mt-1 mb-2">
+                        <div className="h-1.5 w-full bg-[#0D1B2A]/50 rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full bg-gradient-to-r from-[#00BFA6] to-[#074d77]"
+                            style={{
+                              width: getTimeSpanWidth(item.date),
+                            }}
+                            initial={{ width: 0 }}
+                            animate={{ width: getTimeSpanWidth(item.date) }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                          />
+                        </div>
+                        <div className="flex justify-between text-xs text-[#E0E1DD]/60 mt-0.5">
+                          <span>Start</span>
+                          <span>{getTimeSpan(item.date)}</span>
+                        </div>
                       </div>
 
                       {/* Job title with gradient */}
@@ -407,6 +543,40 @@ export function AnimatedTimeline({ items }: AnimatedTimelineProps) {
                           </motion.div>
                         ))}
                       </div>
+
+                      {/* Add this after the skills section but before the expand indicator */}
+                      {expandedItem === index && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="mt-4 pt-3 border-t border-[#00BFA6]/20"
+                        >
+                          <h4 className="text-sm font-semibold text-[#22d3ee] mb-2">Key Responsibilities:</h4>
+                          <ul className="space-y-1.5 text-sm text-[#E0E1DD]/80 pl-5 list-disc">
+                            {getResponsibilities(item.title).map((resp, i) => (
+                              <motion.li
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.1 + i * 0.1 }}
+                              >
+                                {resp}
+                              </motion.li>
+                            ))}
+                          </ul>
+
+                          {item.impact && (
+                            <div className="mt-3 p-2 bg-[#0D1B2A]/50 rounded-md border border-[#00BFA6]/20">
+                              <div className="flex items-center gap-1.5 mb-1">
+                                <TrendingUp className="h-4 w-4 text-[#00BFA6]" />
+                                <span className="text-sm font-semibold text-[#22d3ee]">Impact:</span>
+                              </div>
+                              <p className="text-sm text-[#E0E1DD]/90">{item.impact}</p>
+                            </div>
+                          )}
+                        </motion.div>
+                      )}
 
                       {/* Expand indicator */}
                       <motion.div

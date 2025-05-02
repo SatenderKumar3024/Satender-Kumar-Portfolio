@@ -1,6 +1,5 @@
 import Hero from "@/components/hero"
 import About from "@/components/about"
-import TechnicalExpertise from "@/components/technical-expertise"
 import Projects from "@/components/projects"
 import Certifications from "@/components/certifications"
 import Contact from "@/components/contact"
@@ -18,7 +17,6 @@ export default function Home() {
       <KeyAchievements />
       <TechnicalSkills />
       <SecurityDashboard />
-      <TechnicalExpertise />
       <EducationSection />
       <CareerTimelineSection />
       <Projects />

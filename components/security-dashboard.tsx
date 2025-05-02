@@ -6,7 +6,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Download, Share2, BarChart3, PieChart, Info } from "lucide-react"
-import { KpiCards } from "./dashboard/kpi-cards"
 import SkillDomainChart from "./dashboard/skill-domain-chart"
 import SkillRadarChart from "./dashboard/skill-radar-chart"
 import CertificationChart from "./dashboard/certification-chart"
@@ -70,34 +69,6 @@ export default function SecurityDashboard() {
               </Tooltip>
             </TooltipProvider>
           </div>
-        </div>
-
-        {/* Key Performance Indicators - Always visible */}
-        <div className="mb-8">
-          <Card className="bg-gray-800/30 border-gray-700">
-            <CardHeader className="pb-2">
-              <div className="flex justify-between items-center">
-                <CardTitle className="text-lg">Key Performance Indicators</CardTitle>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                        <Info className="h-4 w-4" />
-                        <span className="sr-only">Info</span>
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Metrics showing security impact across projects</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-              <CardDescription>Security impact metrics across projects</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <KpiCards />
-            </CardContent>
-          </Card>
         </div>
 
         {/* Desktop Tabs */}

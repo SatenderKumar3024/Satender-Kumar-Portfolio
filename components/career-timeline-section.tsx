@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { AnimatedTimeline } from "@/components/animated-timeline"
-import { Shield, Laptop, HelpCircle, Lock, Zap, Award, TrendingUp } from "lucide-react"
+import { Shield, Laptop, HelpCircle, Lock, Zap, Award, TrendingUp, ChevronRight } from "lucide-react"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import SectionWrapper from "@/components/section-wrapper"
 import { AnimatedTimelineButton } from "@/components/ui/animated-timeline-button"
@@ -142,11 +142,47 @@ export default function CareerTimelineSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-center text-[#E0E1DD]">Career Journey</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center text-[#E0E1DD]">Professional Journey</h2>
           <p className="text-center text-[#E0E1DD]/80 mb-12 max-w-2xl mx-auto">
-            My professional growth from technical support to specialized cybersecurity roles, demonstrating progressive
-            expertise in securing digital environments.
+            My evolution from technical support to specialized cybersecurity roles, showcasing progressive expertise in
+            securing digital environments and leading security operations.
           </p>
+
+          <div className="flex justify-center items-center mb-8">
+            <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#0D1B2A]/80 to-[#1B263B]/80 rounded-lg border border-[#00BFA6]/30 shadow-lg">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.7 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2, repeatType: "reverse" }}
+                className="h-3 w-3 rounded-full bg-amber-400"
+              />
+              <span className="text-sm text-[#E0E1DD]/90">Technical Support</span>
+              <ChevronRight className="h-4 w-4 text-[#E0E1DD]/50" />
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.7 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2, repeatType: "reverse", delay: 0.5 }}
+                className="h-3 w-3 rounded-full bg-green-400"
+              />
+              <span className="text-sm text-[#E0E1DD]/90">IT Security</span>
+              <ChevronRight className="h-4 w-4 text-[#E0E1DD]/50" />
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.7 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2, repeatType: "reverse", delay: 1 }}
+                className="h-3 w-3 rounded-full bg-purple-400"
+              />
+              <span className="text-sm text-[#E0E1DD]/90">IAM Specialist</span>
+              <ChevronRight className="h-4 w-4 text-[#E0E1DD]/50" />
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.7 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2, repeatType: "reverse", delay: 1.5 }}
+                className="h-3 w-3 rounded-full bg-blue-400"
+              />
+              <span className="text-sm text-[#E0E1DD]/90">Security Analyst</span>
+            </div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: -20 }}

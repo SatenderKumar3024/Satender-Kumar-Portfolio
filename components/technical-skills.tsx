@@ -360,7 +360,7 @@ export default function TechnicalSkills() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Technical Skills
+              Technical Skills & Expertise
             </motion.h2>
             <motion.div
               className="w-24 h-1 bg-gradient-to-r from-[#00BFA6] to-[#1e90ff] rounded-full mb-6"
@@ -374,8 +374,9 @@ export default function TechnicalSkills() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Specialized expertise across cybersecurity domains, with a focus on cloud security, threat detection, and
-              compliance frameworks.
+              Specialized expertise across cybersecurity domains, with a focus on cloud security, SIEM implementation,
+              threat detection, and compliance frameworks. Proven experience with enterprise security tools and
+              architectures.
             </motion.p>
 
             {/* PDF Download Button with enhanced animation */}
