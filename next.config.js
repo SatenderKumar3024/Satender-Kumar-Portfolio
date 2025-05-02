@@ -25,9 +25,8 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  // Experimental features
+  // Experimental features - REMOVED optimizeCss that requires critters
   experimental: {
-    optimizeCss: true,
     scrollRestoration: true,
   },
 
