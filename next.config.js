@@ -41,6 +41,20 @@ const nextConfig = {
     ]
   },
 
+  // Rewrites for phishing awareness page
+  async rewrites() {
+    return [
+      {
+        source: "/phishing-awareness",
+        destination: "https://v0-phishing-awareness-page.vercel.app",
+      },
+      {
+        source: "/phishing-awareness/:path*",
+        destination: "https://v0-phishing-awareness-page.vercel.app/:path*",
+      },
+    ]
+  },
+
   // Headers to improve security and performance
   async headers() {
     return [

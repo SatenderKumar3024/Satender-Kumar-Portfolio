@@ -7,7 +7,18 @@ import { motion, useInView, useMotionValue, useTransform } from "framer-motion"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Shield, Clock, Target, Zap, CheckCircle, Settings, Lock } from "lucide-react"
+import {
+  ExternalLink,
+  Github,
+  Shield,
+  Clock,
+  Target,
+  Zap,
+  CheckCircle,
+  Settings,
+  Lock,
+  AlertTriangle,
+} from "lucide-react"
 
 // Tag color mapping based on categories
 const tagColorMap: Record<string, string> = {
@@ -32,6 +43,9 @@ const tagColorMap: Record<string, string> = {
   SOAR: "bg-emerald-500/20 text-emerald-500 border-emerald-500/30",
   Playbooks: "bg-red-500/20 text-red-500 border-red-500/30",
   Documentation: "bg-yellow-600/20 text-yellow-600 border-yellow-600/30",
+  "Phishing Awareness": "bg-red-500/20 text-red-500 border-red-500/30",
+  "Security Education": "bg-red-500/20 text-red-500 border-red-500/30",
+  "Social Engineering": "bg-red-500/20 text-red-500 border-red-500/30",
 }
 
 // Get tag color based on technology name
@@ -52,6 +66,8 @@ const getImpactIcon = (category: string) => {
       return <Shield className="h-4 w-4" />
     case "Incident Response/IR":
       return <Clock className="h-4 w-4" />
+    case "Security Education":
+      return <AlertTriangle className="h-4 w-4" />
     default:
       return <Shield className="h-4 w-4" />
   }
@@ -61,6 +77,30 @@ const Projects = () => {
   const [filter, setFilter] = useState<string | null>(null)
 
   const projects = [
+    {
+      title: "Phishing Awareness Simulator",
+      description:
+        "Interactive cybersecurity education tool that simulates realistic phishing scenarios based on MITRE ATT&CK T1566, helping users identify and avoid social engineering attacks.",
+      technologies: ["Phishing Awareness", "MITRE ATT&CK", "Security Education", "Social Engineering"],
+      link: "https://kzmjk5l22es3lodcgfhf.lite.vusercontent.net/",
+      github: "https://github.com/SatenderKumar3024/Phishing-Attacks-Don-t-Take-the-Bait-",
+      color: "from-[#7d1a0b] to-[#a83242]",
+      icon: "/digital-shield-alert.png",
+      preview: "/phishing-awareness-cybersecurity.png",
+      category: "Security Education",
+      impact: "User Awareness +45%",
+      impactIcon: <AlertTriangle className="h-4 w-4" />,
+      impactColor: "bg-[#f87171]/20 text-[#f87171] border-[#f87171]/30",
+      tagColor: "bg-[#f87171]/20 text-[#f87171] border-[#f87171]/30",
+      keyPoints: [
+        {
+          icon: <CheckCircle className="h-4 w-4 text-green-400" />,
+          text: "Simulates 5+ realistic phishing scenarios",
+        },
+        { icon: <Target className="h-4 w-4 text-pink-400" />, text: "Based on MITRE ATT&CK T1566 tactics" },
+        { icon: <Shield className="h-4 w-4 text-blue-400" />, text: "Interactive training with real-world examples" },
+      ],
+    },
     {
       title: "Cloud Security Implementation: IAM Hardening in AWS & Azure",
       description:
